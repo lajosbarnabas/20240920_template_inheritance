@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Colleague;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,5 +8,14 @@ Route::get('/', function () {
 });
 
 Route::get('/colleagues', function (){
-    return view('colleagues');
+
+    for($i= 0; $i < 10; $i++){
+        $c = new Colleague();
+        $c->name = fake()->name();
+        $c->email = fake()->email();
+        $c->phone = fake()->phoneNumber();
+        Colleague::addColleague($c);
+    }
+
+    return view('colleagues', ['colleagues' => Colleague::all()]);
 });

@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="{{request()->is('/') ? 'active' : ''}} nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/colleagues">Colleagues</a>
+            <a class="nav-link {{request()->is('colleagues') ? 'active' : ''}} nav-link " href="/colleagues">Colleagues</a>
           </li>
         </ul>
       </div>
